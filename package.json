@@ -1,0 +1,15 @@
+{
+  "name": "slatejs-sample",
+  "version": "0.0.1",
+  "description": "slatejs-sample",
+  "main": "index.js",
+  "author": "otukutun",
+  "license": "MIT",
+  "dependencies": {
+    "immutable": "^3.8.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "slate": "^0.31.5",
+    "slate-react": "^0.10.20"
+  }
+}
