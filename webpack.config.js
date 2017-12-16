@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   // エントリーポイントの設定
@@ -7,14 +8,19 @@ module.exports = {
   output: {
     // 出力するファイル名
     filename: 'bundle.js',
-    // 出力先のパス（v2系以降は絶対パスを指定する必要がある）
-    path: path.join(__dirname, 'public/js')
+    path: path.join(__dirname, 'dist')
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: 'src/index.html'
+    })
+  ],
   module: {
     loaders: [
       {
