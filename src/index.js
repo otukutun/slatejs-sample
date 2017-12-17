@@ -39,12 +39,25 @@ class App extends React.Component {
     this.setState({ value })
   }
 
+  onKeyDown = (event, change) => {
+    // Return with no changes if it's not the "&" key.
+    if (event.key != '&') return
+
+    // Prevent the ampersand character from being inserted.
+    event.preventDefault()
+
+    // Change the value by inserting "and" at the cursor's position.
+    change.insertText('and')
+    return true
+  }
+
   // Render the editor.
   render() {
     return (
       <Editor
         value={this.state.value}
         onChange={this.onChange}
+        onKeyDown={this.onKeyDown}
       />
     )
   }
